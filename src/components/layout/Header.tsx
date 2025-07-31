@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon, Phone, Mail } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -66,11 +67,11 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 hover-lift flex-shrink-0">
-              <div className="w-12 h-12 bg-gradient-royal rounded-full flex items-center justify-center shadow-royal">
-                <span className="text-white font-bold text-xl">A</span>
+            <Link to="/" className="flex items-center space-x-3 hover-lift flex-shrink-0 max-w-xs">
+              <div className="w-12 h-12 rounded-full overflow-hidden shadow-royal flex-shrink-0">
+                <img src={logo} alt="Alpha High School Logo" className="w-full h-full object-cover" />
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 overflow-hidden">
                 <h1 className="font-playfair font-bold text-lg xl:text-xl heading-royal truncate">
                   Alpha High School
                 </h1>
@@ -107,12 +108,6 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </EnhancedButton>
 
-              {/* CTA Button */}
-              <div className="hidden md:block">
-                <EnhancedButton variant="royal" size="lg">
-                  Admissions Open
-                </EnhancedButton>
-              </div>
 
               {/* Mobile Menu Button */}
               <EnhancedButton
@@ -144,11 +139,6 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-border">
-                  <EnhancedButton variant="royal" className="w-full">
-                    Admissions Open
-                  </EnhancedButton>
-                </div>
               </div>
             </div>
           )}

@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-primary via-primary-dark to-primary text-primary-foreground">
+    <footer className="bg-gradient-to-br from-primary via-primary-light to-gold text-white">
       {/* Stats Section */}
       <div className="py-16 border-b border-primary-light/20">
         <div className="container mx-auto px-4">

@@ -176,7 +176,7 @@ const NewsSection: React.FC = () => {
                   </p>
                   <EnhancedButton 
                     variant="royal"
-                    onClick={() => window.open(`/news/${newsItems[0].id}`, '_blank')}
+                    onClick={() => window.location.href = `/news/${newsItems[0].id}`}
                   >
                     Read Full Article
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -203,7 +203,7 @@ const NewsSection: React.FC = () => {
                   </p>
                   <button 
                     className="text-primary font-medium text-sm hover:text-primary-light transition-colors flex items-center space-x-1"
-                    onClick={() => window.open(`/news/${news.id}`, '_blank')}
+                    onClick={() => window.location.href = `/news/${news.id}`}
                   >
                     <span>Read more</span>
                     <ArrowRight className="h-3 w-3" />
@@ -246,7 +246,14 @@ const NewsSection: React.FC = () => {
                     <EnhancedButton 
                       variant="outline" 
                       size="sm"
-                      onClick={() => window.open(circular.downloadUrl, '_blank')}
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = `data:text/plain;charset=utf-8,${encodeURIComponent(circular.title + '\n\nThis is a sample document.\n\n' + circular.description)}`;
+                        link.download = `${circular.title}.txt`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }}
                     >
                       <Download className="h-4 w-4 mr-2" />
                       Download
@@ -270,7 +277,7 @@ const NewsSection: React.FC = () => {
           <EnhancedButton 
             variant="glass" 
             size="lg"
-            onClick={() => window.open(`/${activeTab}`, '_blank')}
+            onClick={() => window.location.href = `/${activeTab}`}
           >
             View All {activeTab === "news" ? "News" : "Circulars"}
             <ArrowRight className="ml-2 h-5 w-5" />

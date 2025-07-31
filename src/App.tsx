@@ -17,6 +17,9 @@ import Gallery from "./pages/Gallery";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import NewsArticle from "./pages/NewsArticle";
+import AllNews from "./pages/AllNews";
+import AllCirculars from "./pages/AllCirculars";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +43,9 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/news/:id" element={<NewsArticle />} />
+            <Route path="/news" element={<AllNews />} />
+            <Route path="/circulars" element={<AllCirculars />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -130,12 +130,18 @@ const HeroSection: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up" style={{ animationDelay: '0.6s' }}>
-            <EnhancedButton variant="hero" size="xl" className="group">
+            <EnhancedButton 
+              variant="hero" 
+              size="xl" 
+              className="group"
+              onClick={() => {
+                if (currentSlide === 0) window.location.href = '/academics';
+                else if (currentSlide === 1) window.location.href = '/academics';
+                else window.location.href = '/academics';
+              }}
+            >
               {slides[currentSlide].cta}
               <Play className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </EnhancedButton>
-            <EnhancedButton variant="glass" size="xl">
-              Take Virtual Tour
             </EnhancedButton>
           </div>
 
