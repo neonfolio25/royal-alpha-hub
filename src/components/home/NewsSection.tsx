@@ -174,7 +174,10 @@ const NewsSection: React.FC = () => {
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {newsItems[0].excerpt}
                   </p>
-                  <EnhancedButton variant="royal">
+                  <EnhancedButton 
+                    variant="royal"
+                    onClick={() => window.open(`/news/${newsItems[0].id}`, '_blank')}
+                  >
                     Read Full Article
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </EnhancedButton>
@@ -198,7 +201,10 @@ const NewsSection: React.FC = () => {
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                     {news.excerpt}
                   </p>
-                  <button className="text-primary font-medium text-sm hover:text-primary-light transition-colors flex items-center space-x-1">
+                  <button 
+                    className="text-primary font-medium text-sm hover:text-primary-light transition-colors flex items-center space-x-1"
+                    onClick={() => window.open(`/news/${news.id}`, '_blank')}
+                  >
                     <span>Read more</span>
                     <ArrowRight className="h-3 w-3" />
                   </button>
@@ -237,11 +243,19 @@ const NewsSection: React.FC = () => {
                     </p>
                   </div>
                   <div className="flex space-x-2 ml-6">
-                    <EnhancedButton variant="outline" size="sm">
+                    <EnhancedButton 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open(circular.downloadUrl, '_blank')}
+                    >
                       <Download className="h-4 w-4 mr-2" />
                       Download
                     </EnhancedButton>
-                    <EnhancedButton variant="ghost" size="sm">
+                    <EnhancedButton 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => window.open(circular.downloadUrl, '_blank')}
+                    >
                       <ExternalLink className="h-4 w-4" />
                     </EnhancedButton>
                   </div>
@@ -253,7 +267,11 @@ const NewsSection: React.FC = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12 animate-fade-in">
-          <EnhancedButton variant="glass" size="lg">
+          <EnhancedButton 
+            variant="glass" 
+            size="lg"
+            onClick={() => window.open(`/${activeTab}`, '_blank')}
+          >
             View All {activeTab === "news" ? "News" : "Circulars"}
             <ArrowRight className="ml-2 h-5 w-5" />
           </EnhancedButton>

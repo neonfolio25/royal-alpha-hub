@@ -66,25 +66,25 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 hover-lift">
+            <Link to="/" className="flex items-center space-x-3 hover-lift flex-shrink-0">
               <div className="w-12 h-12 bg-gradient-royal rounded-full flex items-center justify-center shadow-royal">
                 <span className="text-white font-bold text-xl">A</span>
               </div>
-              <div>
-                <h1 className="font-playfair font-bold text-xl heading-royal">
+              <div className="min-w-0">
+                <h1 className="font-playfair font-bold text-lg xl:text-xl heading-royal truncate">
                   Alpha High School
                 </h1>
-                <p className="text-sm text-muted-foreground">IIT & Medical Foundation</p>
+                <p className="text-xs xl:text-sm text-muted-foreground truncate">IIT & Medical Foundation</p>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-1 overflow-x-auto">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
+                  className={`px-3 py-2 rounded-lg transition-all duration-300 font-medium text-sm whitespace-nowrap ${
                     location.pathname === item.href
                       ? "bg-primary text-primary-foreground shadow-royal"
                       : "text-foreground hover:bg-primary/10 hover:text-primary"
