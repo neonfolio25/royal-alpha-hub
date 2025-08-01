@@ -1,39 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft, Share } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share, Facebook, Twitter, MessageCircle, Mail, Copy } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { useToast } from "@/hooks/use-toast";
 
 const NewsArticle = () => {
   const { id } = useParams();
   const { toast } = useToast();
+  const [showShareOptions, setShowShareOptions] = useState(false);
 
-  const handleShare = async () => {
-    const url = window.location.href;
-    const title = article?.title || "Alpha High School News";
-    
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: title,
-          url: url,
-        });
-      } catch (error) {
-        // Fallback to clipboard
-        navigator.clipboard.writeText(url);
-        toast({
-          title: "Link copied!",
-          description: "Article link has been copied to clipboard.",
-        });
-      }
-    } else {
-      // Fallback for browsers that don't support Web Share API
-      navigator.clipboard.writeText(url);
+  const handleShare = () => {
+    setShowShareOptions(!showShareOptions);
+  };
+
+  const shareUrl = window.location.href;
+  const shareTitle = "Check out this article from Alpha High School";
+
+  const shareOptions = [
+    {
+      name: "WhatsApp",
+      icon: MessageCircle,
+      url: `https://wa.me/?text=${encodeURIComponent(shareTitle + " " + shareUrl)}`,
+      color: "hover:bg-green-500"
+    },
+    {
+      name: "Facebook", 
+      icon: Facebook,
+      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      color: "hover:bg-blue-600"
+    },
+    {
+      name: "Twitter",
+      icon: Twitter, 
+      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
+      color: "hover:bg-blue-400"
+    },
+    {
+      name: "Email",
+      icon: Mail,
+      url: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`,
+      color: "hover:bg-gray-600"
+    }
+  ];
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
       toast({
         title: "Link copied!",
         description: "Article link has been copied to clipboard.",
       });
+      setShowShareOptions(false);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to copy link to clipboard.",
+        variant: "destructive"
+      });
     }
+  };
+
+  const handleShareOption = (url: string) => {
+    window.open(url, '_blank', 'width=600,height=400');
+    setShowShareOptions(false);
   };
 
   const articles = {
@@ -132,10 +161,37 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
 
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground">By {article.author}</p>
-            <EnhancedButton variant="outline" size="sm" onClick={handleShare}>
-              <Share className="h-4 w-4 mr-2" />
-              Share
-            </EnhancedButton>
+            <div className="relative">
+              <EnhancedButton variant="outline" size="sm" onClick={handleShare}>
+                <Share className="h-4 w-4 mr-2" />
+                Share
+              </EnhancedButton>
+              
+              {/* Share Options Dropdown */}
+              {showShareOptions && (
+                <div className="absolute right-0 top-full mt-2 w-48 bg-background border border-border rounded-lg shadow-lg z-50">
+                  <div className="p-2">
+                    {shareOptions.map((option) => (
+                      <button
+                        key={option.name}
+                        onClick={() => handleShareOption(option.url)}
+                        className={`flex items-center w-full px-3 py-2 text-sm rounded-md transition-colors hover:text-white ${option.color}`}
+                      >
+                        <option.icon className="h-4 w-4 mr-3" />
+                        {option.name}
+                      </button>
+                    ))}
+                    <button
+                      onClick={handleCopyLink}
+                      className="flex items-center w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-gray-500 hover:text-white"
+                    >
+                      <Copy className="h-4 w-4 mr-3" />
+                      Copy Link
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
