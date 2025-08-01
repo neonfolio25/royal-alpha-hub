@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft, Share, Facebook, Twitter, MessageCircle, Mail, Copy } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share, Facebook, Twitter, MessageCircle, Mail, Copy, Linkedin, Instagram, Send } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -34,6 +34,30 @@ const NewsArticle = () => {
       icon: Twitter, 
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
       color: "hover:bg-blue-400"
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      color: "hover:bg-blue-700"
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: `https://www.instagram.com/`,
+      color: "hover:bg-pink-500"
+    },
+    {
+      name: "Telegram",
+      icon: Send,
+      url: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`,
+      color: "hover:bg-blue-500"
+    },
+    {
+      name: "Reddit",
+      icon: MessageCircle,
+      url: `https://reddit.com/submit?url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareTitle)}`,
+      color: "hover:bg-orange-500"
     },
     {
       name: "Email",
