@@ -193,7 +193,7 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
               
               {/* Share Options Dropdown */}
               {showShareOptions && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-background border border-border rounded-lg shadow-lg z-50">
+                <div className="absolute right-0 top-full mt-2 w-52 bg-background border border-border rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
                   <div className="p-2">
                     {shareOptions.map((option) => (
                       <button
@@ -201,7 +201,7 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
                         onClick={() => handleShareOption(option.url)}
                         className={`flex items-center w-full px-3 py-2 text-sm rounded-md transition-colors hover:text-white ${option.color}`}
                       >
-                        <option.icon className="h-4 w-4 mr-3" />
+                        <option.icon className="h-4 w-4 mr-3 flex-shrink-0" />
                         {option.name}
                       </button>
                     ))}
@@ -209,7 +209,7 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
                       onClick={handleCopyLink}
                       className="flex items-center w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-gray-500 hover:text-white"
                     >
-                      <Copy className="h-4 w-4 mr-3" />
+                      <Copy className="h-4 w-4 mr-3 flex-shrink-0" />
                       Copy Link
                     </button>
                   </div>
