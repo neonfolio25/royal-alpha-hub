@@ -2,13 +2,44 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, Share } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
+import { useToast } from "@/hooks/use-toast";
 
 const NewsArticle = () => {
   const { id } = useParams();
+  const { toast } = useToast();
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    const title = article?.title || "Alpha High School News";
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          url: url,
+        });
+      } catch (error) {
+        // Fallback to clipboard
+        navigator.clipboard.writeText(url);
+        toast({
+          title: "Link copied!",
+          description: "Article link has been copied to clipboard.",
+        });
+      }
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      navigator.clipboard.writeText(url);
+      toast({
+        title: "Link copied!",
+        description: "Article link has been copied to clipboard.",
+      });
+    }
+  };
 
   const articles = {
     "1": {
       title: "IIT Selections 2024: Record Breaking Results",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
       content: `Alpha High School has achieved unprecedented success in the IIT JEE Advanced 2024 examinations, with 85 of our students qualifying for admission to the prestigious Indian Institutes of Technology. This remarkable achievement represents a 40% increase from last year's results and positions Alpha High School as one of the leading educational institutions in the region.
 
 Our comprehensive IIT Foundation program, launched in 2018, has been instrumental in this success. The program combines rigorous academic training with innovative teaching methodologies, personalized mentoring, and regular assessment to ensure students are well-prepared for the competitive examinations.
@@ -29,6 +60,7 @@ We are proud of all our students who have worked tirelessly to achieve these res
     },
     "2": {
       title: "New Science Laboratory Inauguration",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
       content: `Alpha High School proudly announces the inauguration of our new state-of-the-art science laboratories, designed to enhance the learning experience for our students in physics, chemistry, and biology. The new facilities represent a significant investment in educational infrastructure and demonstrate our commitment to providing world-class learning environments.
 
 The new laboratories feature:
@@ -100,7 +132,7 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
 
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground">By {article.author}</p>
-            <EnhancedButton variant="outline" size="sm">
+            <EnhancedButton variant="outline" size="sm" onClick={handleShare}>
               <Share className="h-4 w-4 mr-2" />
               Share
             </EnhancedButton>
@@ -109,6 +141,17 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
 
         {/* Article Content */}
         <div className="glass-card rounded-xl p-8">
+          {/* Article Image */}
+          {article.image && (
+            <div className="mb-8">
+              <img 
+                src={article.image} 
+                alt={article.title}
+                className="w-full h-64 md:h-80 object-cover rounded-lg"
+              />
+            </div>
+          )}
+          
           <div className="prose prose-lg max-w-none">
             {article.content.split('\n\n').map((paragraph, index) => (
               <p key={index} className="mb-6 text-foreground leading-relaxed">
