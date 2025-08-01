@@ -137,44 +137,6 @@ const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Newsletter & Social */}
-            <div>
-              <h4 className="font-semibold text-lg mb-6 text-gold">Stay Connected</h4>
-              
-              {/* Newsletter */}
-              <div className="mb-6">
-                <p className="text-primary-foreground/80 mb-4">Subscribe to our newsletter for updates</p>
-                <div className="flex">
-                  <input 
-                    type="email" 
-                    placeholder="Your email"
-                    className="flex-1 px-3 py-2 bg-primary-light/20 border border-primary-light/30 rounded-l-lg text-primary-foreground placeholder-primary-foreground/60 focus:outline-none focus:border-gold"
-                  />
-                  <button className="px-4 py-2 bg-gold text-primary rounded-r-lg hover:bg-gold-light transition-colors duration-300 font-semibold">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div>
-                <p className="text-primary-foreground/80 mb-4">Follow Us</p>
-                <div className="flex space-x-3">
-                  <a href="#" className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                    <Facebook className="h-5 w-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                    <Youtube className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
