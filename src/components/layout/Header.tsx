@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1 overflow-x-auto">
+            <nav className="hidden lg:flex items-center space-x-1 overflow-x-auto ml-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
