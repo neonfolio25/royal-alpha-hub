@@ -193,7 +193,7 @@ This investment in infrastructure is part of our ongoing commitment to excellenc
               
               {/* Share Options Dropdown */}
               {showShareOptions && (
-                <div className="absolute right-0 top-full mt-2 w-52 bg-background border border-border rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
+                <div className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50 max-h-80 overflow-y-auto">
                   <div className="p-2">
                     {shareOptions.map((option) => (
                       <button
