@@ -28,7 +28,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/royal-alpha-hub">
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
