@@ -95,7 +95,7 @@ const AchievementsSection: React.FC = () => {
 
         {/* Statistics Bar */}
         <div className="glass-card rounded-2xl p-8 animate-fade-in">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-gold mb-2 font-playfair">28+</div>
               <div className="text-muted-foreground">Years of Excellence</div>
@@ -111,6 +111,29 @@ const AchievementsSection: React.FC = () => {
             <div className="text-center">
               <div className="text-4xl font-bold text-warning mb-2 font-playfair">150+</div>
               <div className="text-muted-foreground">Expert Faculty</div>
+            </div>
+          </div>
+          
+          {/* Branch Information */}
+          <div className="border-t border-border/50 pt-8">
+            <h3 className="text-xl font-semibold text-center mb-6 text-foreground">Our Branches</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2 font-playfair">3</div>
+                <div className="text-muted-foreground font-medium">Cumbum</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-success mb-2 font-playfair">1</div>
+                <div className="text-muted-foreground font-medium">Bestavaripeta</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-warning mb-2 font-playfair">1</div>
+                <div className="text-muted-foreground font-medium">Podili</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold mb-2 font-playfair">1</div>
+                <div className="text-muted-foreground font-medium">Kanigiri</div>
+              </div>
             </div>
           </div>
         </div>
