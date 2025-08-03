@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
       {/* Main Header */}
       <header 
         className={`fixed top-[40px] left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "nav-glass shadow-lg" : "bg-background/80 backdrop-blur-sm"
+          isScrolled || isMenuOpen ? "nav-glass shadow-lg bg-background/95 backdrop-blur-md" : "bg-background/80 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -123,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden absolute top-full left-0 right-0 glass-card m-4 rounded-2xl animate-slide-up">
+            <div className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border border-border/50 shadow-xl m-4 rounded-2xl animate-slide-up">
               <div className="flex flex-col space-y-2 p-6">
                 {navigation.map((item) => (
                   <Link
