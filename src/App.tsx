@@ -28,7 +28,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/royal-alpha-hub">
+      <BrowserRouter basename={import.meta.env.PROD ? "/royal-alpha-hub" : ""}>
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
