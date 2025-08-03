@@ -117,20 +117,52 @@ const AchievementsSection: React.FC = () => {
           {/* Branch Information */}
           <div className="border-t border-border/50 pt-8">
             <h3 className="text-xl font-semibold text-center mb-6 text-foreground">Our Branches</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center group">
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1527576539890-dfa815648363?auto=format&fit=crop&w=400&h=250" 
+                    alt="Cumbum Branch" 
+                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
                 <div className="text-3xl font-bold text-primary mb-2 font-playfair">3</div>
                 <div className="text-muted-foreground font-medium">Cumbum</div>
               </div>
-              <div className="text-center">
+              <div className="text-center group">
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?auto=format&fit=crop&w=400&h=250" 
+                    alt="Bestavaripeta Branch" 
+                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
                 <div className="text-3xl font-bold text-success mb-2 font-playfair">1</div>
                 <div className="text-muted-foreground font-medium">Bestavaripeta</div>
               </div>
-              <div className="text-center">
+              <div className="text-center group">
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&h=250" 
+                    alt="Podili Branch" 
+                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
                 <div className="text-3xl font-bold text-warning mb-2 font-playfair">1</div>
                 <div className="text-muted-foreground font-medium">Podili</div>
               </div>
-              <div className="text-center">
+              <div className="text-center group">
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=400&h=250" 
+                    alt="Kanigiri Branch" 
+                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
                 <div className="text-3xl font-bold text-gold mb-2 font-playfair">1</div>
                 <div className="text-muted-foreground font-medium">Kanigiri</div>
               </div>
