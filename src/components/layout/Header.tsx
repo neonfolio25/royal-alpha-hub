@@ -137,24 +137,22 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden fixed top-[120px] left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl animate-slide-up z-50">
-              <div className="overflow-y-auto h-full">
-                <div className="flex flex-col space-y-2 p-6">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
-                        location.pathname === item.href
-                          ? "bg-primary text-primary-foreground"
-                          : "text-foreground hover:bg-primary/10"
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+            <div className="lg:hidden fixed inset-0 top-[160px] bg-background/95 backdrop-blur-md border-t border-border shadow-xl z-[60] overflow-y-auto">
+              <div className="flex flex-col space-y-2 p-6 h-full">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                      location.pathname === item.href
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground hover:bg-primary/10"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
           )}
