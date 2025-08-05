@@ -1,5 +1,6 @@
 import React from "react";
 import { Quote, Award, BookOpen, Users, Heart } from "lucide-react";
+import principalPhoto from "@/assets/principal-photo.jpg";
 
 const PrincipalMessage = () => {
   const achievements = [
@@ -35,8 +36,12 @@ const PrincipalMessage = () => {
               {/* Principal Photo & Info */}
               <div className="lg:col-span-1 animate-slide-up">
                 <div className="glass-card rounded-2xl p-8 text-center">
-                  <div className="w-48 h-48 bg-gradient-royal rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-white">AK</span>
+                  <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden border-4 border-primary/20">
+                    <img 
+                      src={principalPhoto} 
+                      alt="Dr. Anita Kumari - Principal" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h2 className="text-2xl font-playfair font-bold text-foreground mb-2">
                     Dr. Anita Kumari

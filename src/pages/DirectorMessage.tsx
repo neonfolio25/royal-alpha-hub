@@ -1,5 +1,6 @@
 import React from "react";
 import { Quote, Target, TrendingUp, Users, Lightbulb } from "lucide-react";
+import directorPhoto from "@/assets/director-photo.jpg";
 
 const DirectorMessage = () => {
   const visionPoints = [
@@ -35,8 +36,12 @@ const DirectorMessage = () => {
               {/* Director Photo & Info */}
               <div className="lg:col-span-1 animate-slide-up">
                 <div className="glass-card rounded-2xl p-8 text-center">
-                  <div className="w-48 h-48 bg-gradient-to-r from-gold to-gold-light rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-primary">RS</span>
+                  <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden border-4 border-gold/20">
+                    <img 
+                      src={directorPhoto} 
+                      alt="Mr. Rajesh Sharma - Director" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h2 className="text-2xl font-playfair font-bold text-foreground mb-2">
                     Mr. Rajesh Sharma
