@@ -137,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden fixed top-[140px] left-0 right-0 bottom-0 bg-background/98 backdrop-blur-md border-t border-border/50 shadow-xl animate-slide-up z-40">
+            <div className="lg:hidden fixed top-[120px] left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl animate-slide-up z-50">
               <div className="overflow-y-auto h-full">
                 <div className="flex flex-col space-y-2 p-6">
                   {navigation.map((item) => (
