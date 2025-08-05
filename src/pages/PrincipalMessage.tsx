@@ -44,7 +44,7 @@ const PrincipalMessage = () => {
                     />
                   </div>
                   <h2 className="text-2xl font-playfair font-bold text-foreground mb-2">
-                    Dr. Anita Kumari
+                    Mr.Reteesh T.Nair
                   </h2>
                   <p className="text-gold font-semibold mb-4">Principal</p>
                   <div className="space-y-2 text-sm text-muted-foreground">
@@ -144,7 +144,7 @@ const PrincipalMessage = () => {
 
                     <div className="text-right mt-8">
                       <p className="text-foreground font-semibold">With warm regards,</p>
-                      <p className="text-2xl font-playfair text-gold mt-2">Dr. Anita Kumari</p>
+                      <p className="text-2xl font-playfair text-gold mt-2">Mr.Reteesh T.Nair</p>
                       <p className="text-muted-foreground">Principal, Alpha High School</p>
                     </div>
                   </div>
