@@ -44,7 +44,7 @@ const DirectorMessage = () => {
                     />
                   </div>
                   <h2 className="text-2xl font-playfair font-bold text-foreground mb-2">
-                    Mr. Rajesh Sharma
+                    Mr. MalKonda Reddy
                   </h2>
                   <p className="text-gold font-semibold mb-4">Founder & Director</p>
                   <div className="space-y-2 text-sm text-muted-foreground">
@@ -155,7 +155,7 @@ const DirectorMessage = () => {
 
                     <div className="text-right mt-8">
                       <p className="text-foreground font-semibold">Best wishes for your success,</p>
-                      <p className="text-2xl font-playfair text-gold mt-2">Rajesh Sharma</p>
+                      <p className="text-2xl font-playfair text-gold mt-2"> Mr. MalKonda Reddy</p>
                       <p className="text-muted-foreground">Founder & Director, Alpha High School</p>
                     </div>
                   </div>
