@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground py-2 px-4 text-sm">
+      <div className="hidden md:block bg-primary text-primary-foreground py-2 px-4 text-sm">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
               <span>info@alphahighschool.edu.in</span>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <span className="font-medium">Excellence in Education Since 1995</span>
           </div>
         </div>
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
       {/* Main Header */}
       <header 
-        className={`fixed top-[40px] left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed md:top-[40px] top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMenuOpen ? "nav-glass shadow-lg bg-background/95 backdrop-blur-md" : "bg-background/80 backdrop-blur-sm"
         }`}
       >
@@ -137,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden fixed inset-0 top-[160px] bg-background/95 backdrop-blur-md border-t border-border shadow-xl z-[60] overflow-y-auto">
+            <div className="lg:hidden fixed inset-0 top-[80px] bg-background/95 backdrop-blur-md border-t border-border shadow-xl z-[60] overflow-y-auto">
               <div className="flex flex-col space-y-2 p-6 h-full">
                 {navigation.map((item) => (
                   <Link
