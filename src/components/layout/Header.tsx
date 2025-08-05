@@ -22,6 +22,20 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
@@ -123,22 +137,24 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border border-border/50 shadow-xl m-4 rounded-2xl animate-slide-up">
-              <div className="flex flex-col space-y-2 p-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
-                      location.pathname === item.href
-                        ? "bg-primary text-primary-foreground"
-                        : "text-foreground hover:bg-primary/10"
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+            <div className="lg:hidden fixed top-[140px] left-0 right-0 bottom-0 bg-background/98 backdrop-blur-md border-t border-border/50 shadow-xl animate-slide-up z-40">
+              <div className="overflow-y-auto h-full">
+                <div className="flex flex-col space-y-2 p-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                        location.pathname === item.href
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-primary/10"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           )}
